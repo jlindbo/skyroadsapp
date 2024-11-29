@@ -1,0 +1,35 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+      navigatingTo="navigatingTo"
+      actionBarHidden="true"
+      orientation="landscape">
+    
+    <GridLayout rows="*" columns="*, auto">
+        <!-- Camera preview -->
+        <ContentView row="0" col="0">
+            <Camera id="camera" class="camera" />
+        </ContentView>
+        
+        <!-- Level indicator -->
+        <StackLayout row="0" col="0" horizontalAlignment="center" verticalAlignment="center">
+            <GridLayout class="level-indicator" width="200" height="2">
+                <Label text="" class="level-line" />
+            </GridLayout>
+        </StackLayout>
+
+        <!-- Mini map -->
+        <ContentView row="0" col="0" width="150" height="150" 
+                    verticalAlignment="bottom" horizontalAlignment="left"
+                    margin="10" class="rounded-lg overflow-hidden">
+            <GridLayout id="mapView" class="mini-map" />
+        </ContentView>
+
+        <!-- Controls -->
+        <StackLayout row="0" col="1" class="controls-container">
+            <Button text="✕" tap="{{ onClose }}" class="close-button mb-4" />
+            <Button text="{{ isRecording ? '⬤' : '◯' }}" 
+                    tap="{{ onRecordToggle }}" 
+                    class="{{ 'record-button ' + (isRecording ? 'bg-red-500' : 'bg-green-500') }}" />
+            <Label text="{{ captureCount + ' photos' }}" class="text-white text-center mt-2" />
+        </StackLayout>
+    </GridLayout>
+</Page>

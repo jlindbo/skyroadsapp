@@ -1,0 +1,12 @@
+<GridLayout xmlns="http://schemas.nativescript.org/tns.xsd">
+    <ScrollView class="debug-overlay" visibility="{{ $parents['tns:Frame'].debugManager.showDebug ? 'visible' : 'collapsed' }}">
+        <StackLayout>
+            <Label text="Debug Logs" class="debug-header" />
+            <Repeater items="{{ $parents['tns:Frame'].logger.logs }}">
+                <Repeater.itemTemplate>
+                    <Label text="{{ $value }}" textWrap="true" class="debug-log" />
+                </Repeater.itemTemplate>
+            </Repeater>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>

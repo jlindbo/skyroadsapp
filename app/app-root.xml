@@ -1,0 +1,11 @@
+<Frame defaultPage="views/home/home-page">
+    <Frame.bottomView>
+        <ContentView>
+            <GridLayout>
+                <ContentView>
+                    <include src="~/components/debug-overlay" />
+                </ContentView>
+            </GridLayout>
+        </ContentView>
+    </Frame.bottomView>
+</Frame>

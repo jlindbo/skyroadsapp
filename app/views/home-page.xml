@@ -1,0 +1,29 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Skyroads" />
+    
+    <GridLayout rows="auto, *, auto" class="p-4">
+        <!-- User info -->
+        <GridLayout rows="auto" columns="auto, *, auto" class="user-info">
+            <Image col="0" src="~/images/avatar.png" class="w-12 h-12 rounded-full" />
+            <Label col="1" text="{{ username }}" class="text-xl ml-4" />
+            <Label col="2" text="🏆" class="text-2xl" />
+        </GridLayout>
+
+        <!-- Recordings list -->
+        <ListView row="1" items="{{ recordings }}" class="recordings-list">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto" class="recording-item p-4">
+                    <StackLayout col="0">
+                        <Label text="{{ date, 'dd MMM yyyy • HH:mm' }}" class="text-lg" />
+                        <Label text="{{ imageCount }} images" class="text-sm text-gray-500" />
+                    </StackLayout>
+                    <Label col="1" text="→" class="text-xl" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+
+        <!-- Camera button -->
+        <Button row="2" text="📸" tap="{{ onStartRecording }}" 
+                class="record-button text-2xl p-4" />
+    </GridLayout>
+</Page>
